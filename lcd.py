@@ -18,7 +18,7 @@ def get_ip_address(ifname):
 
 while True:
 	mylcd.lcd_display_string("IP Address:", 1)
-	mylcd.lcd_display_string(get_ip_address('eth0'), 2)
+	mylcd.lcd_display_string(get_ip_address('wlan0'), 2)
 
 	time.sleep(1)
 	mylcd.lcd_clear()
