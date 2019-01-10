@@ -24,7 +24,7 @@ def wait_and_refresh():
 
 while True:
     mylcd.lcd_display_string("IP Address:", 1)
-    mylcd.lcd_display_string(get_ip_address('eth0'), 2)
+    mylcd.lcd_display_string(get_ip_address('wlan0'), 2)
 
     wait_and_refresh()
 
