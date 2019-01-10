@@ -16,17 +16,19 @@ def get_ip_address(ifname):
                                                     ifname[:15]))[20:24])
 
 
+def wait_and_refresh():
+    time.sleep(10)
+    mylcd.lcd_clear()
+    time.sleep(1)
+
+
 while True:
-	mylcd.lcd_display_string("IP Address:", 1)
-	mylcd.lcd_display_string(get_ip_address('eth0'), 2)
+    mylcd.lcd_display_string("IP Address:", 1)
+    mylcd.lcd_display_string(get_ip_address('eth0'), 2)
 
-	time.sleep(1)
-	mylcd.lcd_clear()
-	time.sleep(1)
+    wait_and_refresh()
 
-	mylcd.lcd_display_string("Time: %s" % time.strftime("%H:%M:%S"), 1)
-	mylcd.lcd_display_string("Date: %s" % time.strftime("%m/%d/%Y"), 2)
+    mylcd.lcd_display_string("Time: %s" % time.strftime("%H:%M:%S"), 1)
+    mylcd.lcd_display_string("Date: %s" % time.strftime("%m/%d/%Y"), 2)
 
-	time.sleep(1)
-	mylcd.lcd_clear()
-	time.sleep(1)
+    wait_and_refresh()
