@@ -9,6 +9,11 @@ import time
 mylcd = I2C_LCD_driver.lcd()
 
 
+def write(line1, line2):
+    mylcd.lcd_display_string(line1, 1)
+    mylcd.lcd_display_string(line2, 2)
+
+
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(
@@ -20,15 +25,3 @@ def wait_and_refresh():
     time.sleep(10)
     mylcd.lcd_clear()
     time.sleep(1)
-
-
-while True:
-    mylcd.lcd_display_string("IP Address:", 1)
-    mylcd.lcd_display_string(get_ip_address('wlan0'), 2)
-
-    wait_and_refresh()
-
-    mylcd.lcd_display_string("Time: %s" % time.strftime("%H:%M:%S"), 1)
-    mylcd.lcd_display_string("Date: %s" % time.strftime("%d %b %y"), 2)
-
-    wait_and_refresh()
