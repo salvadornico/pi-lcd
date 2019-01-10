@@ -29,6 +29,6 @@ while True:
     wait_and_refresh()
 
     mylcd.lcd_display_string("Time: %s" % time.strftime("%H:%M:%S"), 1)
-    mylcd.lcd_display_string("Date: %s" % time.strftime("%d %B %Y"), 2)
+    mylcd.lcd_display_string("Date: %s" % time.strftime("%d %b %y"), 2)
 
     wait_and_refresh()
