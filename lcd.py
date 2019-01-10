@@ -9,9 +9,11 @@ import time
 mylcd = I2C_LCD_driver.lcd()
 
 
-def write(line1, line2):
+def write(line1, line2=None):
     mylcd.lcd_display_string(line1, 1)
-    mylcd.lcd_display_string(line2, 2)
+
+    if line2 is not None:
+        mylcd.lcd_display_string(line2, 2)
 
 
 def get_ip_address(ifname):
